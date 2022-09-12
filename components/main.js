@@ -3,7 +3,7 @@
 import React, {Component} from 'react';
 import {Text, Alert, View, ScrollView, TouchableHighlight, Modal} from 'react-native';
 import styles from './styles';
-import SlangPaymentsAssistant, {TransactionUserJourney, NavigationUserJourney, BillPaymentsUserJourney, AssistantSubDomain  } from '@slanglabs/slang-conva-react-native-payments-assistant';
+import SlangPaymentsAssistant, {TransactionUserJourney, NavigationUserJourney, BillPaymentsUserJourney, AssistantSubDomain, PaymentsUserJourney  } from '@slanglabs/slang-conva-react-native-payments-assistant';
 
 class Sample extends Component {
     state = {
@@ -292,9 +292,10 @@ class Sample extends Component {
             requestedLocales: ['en-IN', 'hi-IN'],
             assistantId: 'df88dada784d48b8b4f744c7b1a98fc4',
             apiKey: '86bf513c8bc84c0f99047f48acb11654',
-
+            enableCustomTrigger: false
           });
           SlangPaymentsAssistant.ui.showTrigger();
+          SlangPaymentsAssistant.startConversation(PaymentsUserJourney.TRANSACTION);
           SlangPaymentsAssistant.setAction(paymentAssistantListener);
           SlangPaymentsAssistant.setLifecycleObserver(paymentAssistantLifeCycleObserver);
           SlangPaymentsAssistant.ui.setWaveColorGradient(['#ad65ea', '#ad65ea']);
