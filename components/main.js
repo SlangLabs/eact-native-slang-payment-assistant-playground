@@ -292,7 +292,7 @@ class Sample extends Component {
             requestedLocales: ['en-IN', 'hi-IN'],
             assistantId: 'df88dada784d48b8b4f744c7b1a98fc4',
             apiKey: '86bf513c8bc84c0f99047f48acb11654',
-            enableCustomTrigger: true,
+            enableCustomTrigger: false,
             environment: Environment.PRODUCTION
           });
           SlangPaymentsAssistant.ui.showTrigger();
