@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
-import {Text, Alert, View, ScrollView, TouchableHighlight, Modal} from 'react-native';
+import {Text, Alert, View, ScrollView, TouchableHighlight, Modal, Button} from 'react-native';
 import styles from './styles';
-import SlangPaymentsAssistant, {TransactionUserJourney, NavigationUserJourney, BillPaymentsUserJourney, AssistantSubDomain, PaymentsUserJourney, Environment  } from '@slanglabs/slang-conva-react-native-payments-assistant';
+import SlangPaymentsAssistant, {TransactionUserJourney, NavigationUserJourney, BillPaymentsUserJourney, AssistantSubDomain, PaymentsUserJourney, Environment, TransactionAction  } from '@slanglabs/slang-conva-react-native-payments-assistant';
 
 class Sample extends Component {
     state = {
@@ -364,6 +364,11 @@ class Sample extends Component {
 
               <Text style={styles.subTitleText}>User Journey and Associated Data :</Text>
               <View style={styles.viewStyle3}>
+              <Button
+                    color="green"
+                    onPress={() => SlangPaymentsAssistant.notifyNonVoiceTransaction("kumar", "100", TransactionAction.SEND)}
+                    title="NotifyNonVoiceTransaction">
+              </Button>
                 <ScrollView vertical={true}>
                   <Text style={styles.intentResponseText}>{this.state.intentResponse}</Text>
                 </ScrollView>
