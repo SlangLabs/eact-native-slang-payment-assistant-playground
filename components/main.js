@@ -3,7 +3,7 @@
 import React, {Component} from 'react';
 import {Text, Alert, View, ScrollView, TouchableHighlight, Modal, Button} from 'react-native';
 import styles from './styles';
-import SlangPaymentsAssistant, {TransactionUserJourney, NavigationUserJourney, BillPaymentsUserJourney, AssistantSubDomain, PaymentsUserJourney, Environment, TransactionAction  } from '@slanglabs/slang-conva-react-native-payments-assistant';
+import SlangPaymentsAssistant, {TransactionUserJourney, NavigationUserJourney, BillPaymentsUserJourney, AssistantSubDomain, PaymentsUserJourney, Environment, TransactionAction, TriggerStyle  } from '@slanglabs/slang-conva-react-native-payments-assistant';
 
 class Sample extends Component {
     state = {
@@ -293,6 +293,7 @@ class Sample extends Component {
             assistantId: 'df88dada784d48b8b4f744c7b1a98fc4',
             apiKey: '86bf513c8bc84c0f99047f48acb11654',
             enableCustomTrigger: false,
+            triggerStyle: TriggerStyle.FLAT,
             environment: Environment.PRODUCTION
           });
           SlangPaymentsAssistant.ui.showTrigger();
@@ -309,6 +310,12 @@ class Sample extends Component {
         }
 
         SlangPaymentsAssistant.setAppDefaultSubDomain(AssistantSubDomain.PAYMENT);
+
+        SlangPaymentsAssistant.ui.setTriggerText( {
+          "en-IN": "Pay",
+          "hi-IN": "भुगतान करना"
+        })
+
         }
 
       render() {
